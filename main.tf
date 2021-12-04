@@ -2,7 +2,7 @@
 data "terraform_remote_state" "global" {
   backend = "remote"
   config = {
-    organization = "Lab14"
+    organization = var.org
     workspaces = {
       name = var.globalwsname
     }
@@ -21,6 +21,9 @@ terraform {
 
 
 
+variable "org" {
+  type        = string
+}
 variable "api_key" {
   type        = string
   description = "API Key"
